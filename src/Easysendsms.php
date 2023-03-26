@@ -4,5 +4,8 @@ namespace Hmimeee\Easysendsms;
 
 class Easysendsms
 {
-    // Build your next great package.
+    public function send($username, $password, $from, $message)
+    {
+        dd($username, $password, $from, $message);
+    }
 }
