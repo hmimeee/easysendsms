@@ -4,8 +4,8 @@ namespace Hmimeee\Easysendsms;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Notifications\ChannelManager;
-use Illuminate\Notifications\Channels\EasysendsmsChannel;
 use Illuminate\Support\Facades\Notification;
+use Hmimeee\Easysendsms\Channels\EasysendsmsChannel;
 
 class EasysendsmsServiceProvider extends ServiceProvider
 {
@@ -55,21 +55,16 @@ class EasysendsmsServiceProvider extends ServiceProvider
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'easysendsms');
 
-        // Register the main class to use with the facade
-        $this->app->singleton('easysendsms', function () {
-            return new Easysendsms();
-        });
-
         $this->app->bind(EasysendsmsChannel::class, function ($app) {
             return new EasysendsmsChannel(
-                $app['config']['username'],
-                $app['config']['password'],
-                $app['config']['from']
+                $app['config']['easysendsms']['username'],
+                $app['config']['easysendsms']['password'],
+                $app['config']['easysendsms']['from']
             );
         });
 
         Notification::resolved(function (ChannelManager $service) {
-            $service->extend('easysendsms', function ($app) {
+            $service->extend('sms', function ($app) {
                 return $app->make(EasysendsmsChannel::class);
             });
         });

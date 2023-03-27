@@ -26,6 +26,13 @@ class EasysendsmsMessage
     public $to;
 
     /**
+     * The message type.
+     *
+     * @var string
+     */
+    public $type = 'text';
+
+    /**
      * Create a new message instance.
      *
      * @param  string  $content
@@ -71,6 +78,18 @@ class EasysendsmsMessage
     public function to($to)
     {
         $this->to = $to;
+
+        return $this;
+    }
+
+    /**
+     * Set the message type.
+     *
+     * @return $this
+     */
+    public function unicode()
+    {
+        $this->type = 'unicode';
 
         return $this;
     }

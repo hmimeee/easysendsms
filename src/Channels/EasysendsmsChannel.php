@@ -4,8 +4,7 @@ namespace Hmimeee\Easysendsms\Channels;
 
 use Hmimeee\Easysendsms\Easysendsms;
 use Illuminate\Notifications\Notification;
-use Illuminate\Notifications\Messages\VonageMessage;
-use Illuminate\Notifications\Messages\EasysendsmsMessage;
+use Hmimeee\Easysendsms\Messages\EasysendsmsMessage;
 
 class EasysendsmsChannel
 {
@@ -62,6 +61,8 @@ class EasysendsmsChannel
             $message = new EasysendsmsMessage($message);
         }
 
-        return (new Easysendsms())->send($this->username, $this->password, $this->from, $message);
+        $client = new Easysendsms($to, $this->username, $this->password, $this->from, $message);
+
+        return $client->send();
     }
 }
