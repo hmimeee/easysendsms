@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Notifications\Channels;
+namespace Hmimeee\Easysendsms\Channels;
 
 use Hmimeee\Easysendsms\Easysendsms;
 use Illuminate\Notifications\Notification;
