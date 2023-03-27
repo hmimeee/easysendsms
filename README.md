@@ -16,8 +16,15 @@ composer require hmimeee/easysendsms
 
 ## Usage
 
+Add this method inside the notifiable model to route the attribute for mobile number
 ```php
-// Usage description here
+/**
+* Route notifications for the SMS channel.
+*/
+public function routeNotificationForSms(Notification $notification): string
+{
+  return $this->cell_phone_no;
+}
 ```
 
 ### Testing
@@ -46,7 +53,3 @@ If you discover any security related issues, please email hmimeee@gmail.com inst
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
