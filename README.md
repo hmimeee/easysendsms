@@ -1,10 +1,8 @@
-# Very short description of the package
+# HTTP(s) SMS API Handler for Easy Send SMS - A SMS sending provider
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/hmimeee/easysendsms.svg?style=flat-square)](https://packagist.org/packages/hmimeee/easysendsms)
 [![Total Downloads](https://img.shields.io/packagist/dt/hmimeee/easysendsms.svg?style=flat-square)](https://packagist.org/packages/hmimeee/easysendsms)
 ![GitHub Actions](https://github.com/hmimeee/easysendsms/actions/workflows/main.yml/badge.svg)
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
 ## Installation
 
